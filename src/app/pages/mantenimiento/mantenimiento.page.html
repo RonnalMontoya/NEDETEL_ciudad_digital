@@ -1,0 +1,68 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">Volver</ion-button>
+    </ion-buttons>
+    <ion-title>Mantenimiento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="wrap">
+
+    <ion-card class="card">
+      <ion-card-header>
+        <ion-card-title>Registrar actividad</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item lines="none" class="field">
+          <ion-label position="stacked">Actividad</ion-label>
+          <ion-input [(ngModel)]="title" placeholder="Ej: Mantenimiento preventivo A/C"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none" class="field">
+          <ion-label position="stacked">Detalle (opcional)</ion-label>
+          <ion-textarea [(ngModel)]="description" autoGrow="true"
+            placeholder="Ej: Limpieza de filtros, revisión de presión, etc."></ion-textarea>
+        </ion-item>
+
+        <ion-item lines="none" class="field">
+          <ion-label position="stacked">Fecha / Hora</ion-label>
+          <ion-datetime [(ngModel)]="dateISO" presentation="date-time"></ion-datetime>
+        </ion-item>
+
+        <ion-button expand="block" shape="round" class="btn-primary" (click)="save()">
+          Guardar actividad
+        </ion-button>
+
+        <div class="error" *ngIf="errorMsg">{{ errorMsg }}</div>
+      </ion-card-content>
+    </ion-card>
+
+    <div class="section-title">Actividades registradas</div>
+
+    <div class="empty" *ngIf="isLoading">Cargando...</div>
+
+    <ion-card class="card" *ngFor="let it of items">
+      <ion-card-content>
+        <div class="row">
+          <div>
+            <div class="item-title">{{ it.title }}</div>
+            <div class="item-meta">{{ it.dateISO | date:'medium' }}</div>
+            <div class="item-desc" *ngIf="it.description">{{ it.description }}</div>
+          </div>
+
+          <ion-button fill="clear" color="danger" (click)="remove(it.id)">
+            Eliminar
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <div class="empty" *ngIf="!isLoading && items.length === 0">
+      Aún no hay actividades registradas.
+    </div>
+
+  </div>
+</ion-content>
