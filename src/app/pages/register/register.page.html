@@ -1,0 +1,71 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="backToLogin()">Volver</ion-button>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="page-wrap">
+
+    <ion-card class="card">
+
+      <ion-card-header class="card-header-center">
+        <ion-card-title>Crear cuenta</ion-card-title>
+
+        <div class="brand-inside">
+          <ion-img
+            class="brand-logo logo-animate"
+            src="assets/imagen/ufinet-nedetel.png"
+            alt="Ufinet - NEDETEL">
+          </ion-img>
+        </div>
+      </ion-card-header>
+
+      <ion-card-content>
+
+        <ion-item lines="none" class="field">
+          <ion-label position="stacked">Nombres y Apellidos</ion-label>
+          <ion-input [(ngModel)]="nombres" placeholder="Ej: Ronnal Montoya"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none" class="field">
+          <ion-label position="stacked">Usuario</ion-label>
+          <ion-input [(ngModel)]="usuario" placeholder="Ej: rmontoya"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none" class="field">
+          <ion-label position="stacked">Correo</ion-label>
+          <ion-input [(ngModel)]="correo" type="email" placeholder="Ej: correo@dominio.com"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none" class="field">
+          <ion-label position="stacked">Clave</ion-label>
+          <ion-input [(ngModel)]="clave" type="password" placeholder="Crea una clave"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none" class="field">
+          <ion-label position="stacked">Confirmar clave</ion-label>
+          <ion-input [(ngModel)]="confirmarClave" type="password" placeholder="Repite la clave"></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" shape="round" class="btn-primary" (click)="createAccount()">
+          CREAR CUENTA
+        </ion-button>
+
+        <div class="links">
+          <a (click)="backToLogin()">Ya tengo cuenta. Iniciar sesión</a>
+        </div>
+
+        <div class="error" *ngIf="errorMsg">
+          {{ errorMsg }}
+        </div>
+
+      </ion-card-content>
+
+    </ion-card>
+
+  </div>
+</ion-content>

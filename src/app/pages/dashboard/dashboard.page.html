@@ -1,0 +1,72 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Dashboard</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">Salir</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="dash-wrap">
+
+    <div class="dash-brand">
+      <ion-img
+        class="dash-logo"
+        src="assets/imagen/ufinet_nedetel.png"
+        alt="Ufinet - NEDETEL">
+      </ion-img>
+
+      <div class="dash-subtitle">NEDETEL – Ciudad Digital</div>
+      <div class="dash-caption">Panel operativo – Data Center</div>
+    </div>
+
+    <div class="grid">
+
+      <ion-card class="tile" (click)="go('/visitas')">
+        <ion-card-content>
+          <div class="tile-title">Visitas</div>
+          <div class="tile-desc">Registro y control de visitas.</div>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="tile" (click)="go('/trabajos')">
+        <ion-card-content>
+          <div class="tile-title">Trabajos</div>
+          <div class="tile-desc">Órdenes y ejecución de tareas.</div>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="tile" (click)="go('/mantenimiento')">
+        <ion-card-content>
+          <div class="tile-title">Mantenimiento</div>
+          <div class="tile-desc">Planificación y control técnico.</div>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="tile" (click)="go('/equipos')">
+        <ion-card-content>
+          <div class="tile-title">Equipos</div>
+          <div class="tile-desc">Inventario y estado de equipos.</div>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="tile" (click)="go('/limpieza')">
+        <ion-card-content>
+          <div class="tile-title">Limpieza</div>
+          <div class="tile-desc">Rutinas y control de áreas.</div>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="tile" (click)="go('/reportes')">
+        <ion-card-content>
+          <div class="tile-title">Reportes</div>
+          <div class="tile-desc">Indicadores y reportes operativos.</div>
+        </ion-card-content>
+      </ion-card>
+
+    </div>
+
+  </div>
+</ion-content>

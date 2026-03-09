@@ -1,0 +1,67 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>NEDETEL – Ciudad Digital</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="page-wrap">
+
+    <ion-card class="login-card">
+
+      <ion-card-header class="card-header-center">
+        <ion-card-title>
+          Intranet Operativa Integral – Data Center
+        </ion-card-title>
+
+        <div class="brand-inside">
+          <ion-img
+            class="brand-logo logo-animate"
+            src="assets/imagen/ufinet_nedetel.png"
+            alt="Ufinet - NEDETEL">
+          </ion-img>
+        </div>
+      </ion-card-header>
+
+      <ion-card-content>
+
+        <ion-item lines="none" class="field">
+          <ion-label position="stacked">Usuario</ion-label>
+          <ion-input
+            [(ngModel)]="username"
+            type="text"
+            placeholder="Ingresa tu usuario">
+          </ion-input>
+        </ion-item>
+
+        <ion-item lines="none" class="field">
+          <ion-label position="stacked">Clave</ion-label>
+          <ion-input
+            [(ngModel)]="password"
+            type="password"
+            placeholder="Ingresa tu clave">
+          </ion-input>
+        </ion-item>
+
+        <ion-button
+          expand="block"
+          shape="round"
+          class="btn-primary"
+          (click)="onLogin()">
+          INGRESAR
+        </ion-button>
+
+        <div class="links">
+          <a (click)="goRegister()">¿No tienes cuenta? Registrarse</a>
+        </div>
+
+        <div class="error" *ngIf="errorMsg">
+          {{ errorMsg }}
+        </div>
+
+      </ion-card-content>
+
+    </ion-card>
+
+  </div>
+</ion-content>
